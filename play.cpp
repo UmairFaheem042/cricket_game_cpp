@@ -113,24 +113,41 @@ void innings2()
 
 void Game()
 {
-    // Toss
-    bool result = toss();
+    // bool result = toss();
+    // int choice;
+    // if (result){
+    //     cout<<"\nWhat do you Choose? Batting(0) or Bowling(1): ";
+    //     cin>>choice;
+    // }
+    // else{
+    //     cout<<"\nYou are Bowling first\n";
+    // }
+    // innings1();
+    // innings2();
+
+    bool wonToss = toss();
     int choice;
-    if (result){
-        cout<<"\nWhat do you Choose? Batting(0) or Bowling(1): ";
-        cin>>choice;
+    if (wonToss) {
+        cout << "\nWhat do you choose? Batting(0) or Bowling(1): ";
+        cin >> choice;
+        if (choice == 0) {
+            innings1();
+            innings2();
+        } else {
+            innings2();
+            innings1();
+        }
+    } else {
+        cout << "\nYou are Bowling first\n";
+        innings2();
+        innings1();
     }
-    else{
-        cout<<"\nYou are Bowling first\n";
-    }
-    // 1st innings
-    innings1();
-    innings2();
 }
 
 void Home(){
-    Game();
+    // Game();
     while (true){
+        target = 0;
         cout << "\nCRICKET PLAY\n\n";
         cout << "1. Play \n";
         cout << "2. Exit \n";
